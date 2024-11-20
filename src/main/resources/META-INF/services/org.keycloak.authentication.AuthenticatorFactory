@@ -1,0 +1,2 @@
+minhtan.authenticator.DeviceRegistrationAuthenticator
+minhtan.authenticator.SmsAuthenticatorFactory
