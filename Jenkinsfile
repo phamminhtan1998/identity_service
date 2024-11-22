@@ -16,7 +16,7 @@ pipeline {
         steps {
          withMaven (
              maven: 'Maven 3.9.9',
-              mavenLocalRepo: '.repository'
+              mavenLocalRepo: '/Users/phamminhtan/.m2/repository'
          ){
                         sh 'mvn -U clean install'
                     }
