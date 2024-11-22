@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Build Docker') {
             steps {
-                sh 'sh run_platform.sh'
+                sh 'docker build -t master-keycloak .'
             }
         }
         stage('Login to Docker Hub'){
