@@ -17,7 +17,7 @@ public class CustomLocaleSelectorProvider extends DefaultLocaleSelectorProvider 
     @Override
     public Locale resolveLocale(RealmModel realm, UserModel user) {
         String defaultLocale = realm.getDefaultLocale();
-        log.infof("Just a sample");
+        log.infof("Just a sample 1");
         log.infof("set default locale : %s", defaultLocale);
         return  new Locale(defaultLocale);
     }
