@@ -24,8 +24,10 @@ pipeline {
         }
         stage('Login to Docker Hub'){
             steps {
-                echo 'Login to Docker Hub'
-                 docker.withRegistry('https://hub.docker.com', 'dockerhub-credential')
+                script {
+                    echo 'Login to Docker Hub'
+                    docker.withRegistry('https://hub.docker.com', 'dockerhub-credential')
+                }
             }
         }
         stage('Push to Registry') {
