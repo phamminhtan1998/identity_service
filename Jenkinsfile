@@ -15,9 +15,10 @@ pipeline {
         stage('Build Maven') {
         steps {
          withMaven (
-             maven: 'Maven 3.9.9'
+             maven: 'Maven 3.9.9',
+              mavenLocalRepo: '.repository'
          ){
-                        sh 'mvn clean install'
+                        sh 'mvn -U clean install'
                     }
         }
 
