@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     echo 'Login to Docker Hub'
-                    docker.withRegistry('docker.io', 'dockerhub-credential') {
+                    docker.withRegistry('https://docker.io', 'dockerhub-credential') {
                     def customImage = docker.build("identity_service:${IMAGE_TAG}")
 
                             /* Push the container to the custom Registry */
