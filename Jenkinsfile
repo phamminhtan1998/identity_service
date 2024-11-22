@@ -30,6 +30,7 @@ pipeline {
         }
 
         stage('Scan Image Valuable') {
+            script {
             steps {
             def trivyOutput = sh(script: "trivy image master-keycloak", returnStdout: true).trim()
             println trivyOutput
@@ -38,6 +39,7 @@ pipeline {
                 echo "No vulnerabilities found in the Docker image."
             } else {
             echo "Vulnerabilities found in the Docker image."
+            }
             }
             }
         }
