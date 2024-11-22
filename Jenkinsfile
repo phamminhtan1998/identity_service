@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tool {
+        maven 'Maven 3.9.9'
+    }
     environment {
         DOCKER_IMAGE = 'master-keycloak:latest'
         IMAGE_TAG = "1.0.2"
