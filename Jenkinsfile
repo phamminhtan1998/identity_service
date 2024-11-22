@@ -32,19 +32,24 @@ pipeline {
             steps {
                 script {
                     echo 'Login to Docker Hub'
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub-credential')
+                    docker.withRegistry('https://hub.docker.com', 'dockerhub-credential') {
+                    def customImage = docker.build("identity_service:${IMAGE_TAG}")
+
+                            /* Push the container to the custom Registry */
+                            customImage.push()
+                    }
                 }
             }
         }
-        stage('Push to Registry') {
-            steps {
-                script {
-                echo 'Tag and push docker image'
-                sh "docker tag ${DOCKER_IMAGE} phamminhtan/identity_service:${IMAGE_TAG}"
-                sh "docker push phamminhtan/identity_service:${IMAGE_TAG}"
-                }
-            }
-        }
+//         stage('Push to Registry') {
+//             steps {
+//                 script {
+//                 echo 'Tag and push docker image'
+//                 sh "docker tag ${DOCKER_IMAGE} phamminhtan/identity_service:${IMAGE_TAG}"
+//                 sh "docker push phamminhtan/identity_service:${IMAGE_TAG}"
+//                 }
+//             }
+//         }
 
     }
 }
